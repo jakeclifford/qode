@@ -37,7 +37,7 @@ export default function Inputs(props) {
                             <Input sx={{ my: 1, mr: 1 }} accept="image/*" id="contained-button-file" name="image" type="file" onChange={imageUpload} />
                         </label>
                         <input  type="color" name="background" value={cardData.background} onChange={handleChange}></input>
-                        <Button sx={{ mt: 1}} variant="contained" type="submit" onClick={formSubmit}>Create Qr Code</Button>
+                        <Button className="Button" sx={{ mt: 1}} variant="contained" type="submit" onClick={formSubmit}>Create Qr Code</Button>
                     </div>
             </FormControl>
         </div>
