@@ -11,7 +11,8 @@ export default function Main(props) {
         username: "Username", 
         url: "qode.design", 
         image: userPlaceholder,
-        background: "#85f6fa"
+        background: "#85f6fa",
+        qrColor: "#000000"
     })
 
     return (
@@ -22,6 +23,7 @@ export default function Main(props) {
                     username={cardData.username} 
                     image={cardData.image} 
                     background={cardData.background}
+                    qrColor={cardData.qrColor}
                 />
             </div>
             <Inputs 

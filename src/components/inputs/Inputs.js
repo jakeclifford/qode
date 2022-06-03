@@ -1,26 +1,35 @@
 import React, {useState} from "react" 
 import { Button, TextField, FormControl, Input, CircularProgress } from "@mui/material"
 import "./Inputs.scss"
+import qrPlaceholder from "../main/qr-placeholder.svg"
 
 export default function Inputs(props) {
     const [loading, setLoading] = useState(false)
 
     const {cardData, setCardData} = props
 
-    function formSubmit(e) {
-        setLoading(true)
-        e.preventDefault()
-        fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${cardData.url}&bgcolor=${cardData.background.substring(1)}`)
+    function fetchData() {
+        fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${cardData.url}&bgcolor=${cardData.background.substring(1)}&color=${cardData.qrColor.substring(1)}&format=svg`)
             .then(response => {
                 setCardData({...cardData, qrCode: response.url})
                 setLoading(false)
             })
             .catch(console.log("Request not recieved"))
     }
+    
+
+    function formSubmit(e) {
+        setLoading(true)
+        e.preventDefault()
+        fetchData()
+    }
 
     function handleChange(e){
-        console.log(cardData.image)
         setCardData({...cardData, [e.target.name]: e.target.value})
+    }
+
+    function handleColorChange(e){
+        setCardData({...cardData, qrCode: qrPlaceholder, [e.target.name]: e.target.value})
     }
 
     function imageUpload(e){
@@ -38,7 +47,14 @@ export default function Inputs(props) {
                         <label htmlFor="contained-button-file">
                             <Input sx={{ my: 1, mr: 1 }} accept="image/*" id="contained-button-file" name="image" type="file" onChange={imageUpload} />
                         </label>
-                        <input  type="color" name="background" value={cardData.background} onChange={handleChange}></input>
+                        <div>
+                            <input  id="background" type="color" name="background" value={cardData.background} onChange={handleColorChange}></input>
+                            <label for="background">Background Color</label>
+                        </div>
+                        <div>
+                            <input  id="qr-color" type="color" name="qrColor" value={cardData.qrColor} onChange={handleColorChange}></input>
+                            <label for="qr-color">QR Code Color</label>
+                        </div>
                         <Button className="Button" sx={{ mt: 1}} variant="contained" type="submit" onClick={formSubmit}>Create Qr Code</Button>
                         {loading && <CircularProgress />}
                     </div>
