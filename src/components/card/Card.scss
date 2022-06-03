@@ -1,0 +1,42 @@
+.card {
+    width: 400px;
+    height: 228.57px;
+    background-color: rgb(69, 170, 229);
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    margin: 20px;
+
+    @media screen and (max-width: 450px) {
+        transform: rotate(-90deg);
+    }
+
+    .username {
+        margin: 0px 20px;
+        line-height: 20px;
+    }
+
+    .card-lower {
+        display: flex;
+        justify-content: space-around;
+
+        .image-container {
+            
+
+            img {
+                height: 160px;
+                width: 160px;
+            }
+        }
+
+        .user-image{
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+}
+
+

@@ -1,0 +1,24 @@
+#main {
+    display: flex;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    #cards {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        width: 50%;
+
+        @media screen and (max-width: 800px) {
+            justify-content: center;
+            width: 100%
+        }
+    
+        @media screen and (max-width: 450px) {
+            height: 95vw;
+        }
+    }
+}
+
