@@ -33,8 +33,8 @@ export default function Inputs(props) {
             <FormControl id="form" onSubmit={formSubmit}>
                     <div id="inputs">
                         <h2 id="username">Customize Card</h2>
-                        <TextField sx={{ my: 1, mr: 1 }} size="small" label="Url" variant="outlined" name="url" onChange={handleChange}/>
-                        <TextField sx={{ my: 1, mr: 1 }} size="small" label="Username" variant="outlined" name="username" onChange={handleChange}/>  
+                        <TextField autoComplete='off' sx={{ my: 1, mr: 1 }} size="small" label="Url" variant="outlined" name="url" onChange={handleChange}/>
+                        <TextField autoComplete='off' sx={{ my: 1, mr: 1 }} size="small" label="Username" variant="outlined" name="username" onChange={handleChange}/>  
                         <label htmlFor="contained-button-file">
                             <Input sx={{ my: 1, mr: 1 }} accept="image/*" id="contained-button-file" name="image" type="file" onChange={imageUpload} />
                         </label>
