@@ -10,11 +10,19 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     margin: 20px;
 
-
+    @media screen and (max-width: 450px) {
+        width: 350px;
+        height: 200px;
+    }
 
     .username {
-        margin: 0px 20px;
-        line-height: 20px;
+        margin: 0px 1rem;
+        line-height: 1rem;
+        font-size: 1.25rem;
+
+        @media screen and (max-width: 450px) {
+            font-size: 1rem;
+        }
     }
 
     .card-lower {
@@ -27,6 +35,11 @@
             img {
                 height: 160px;
                 width: 160px;
+
+                @media screen and (max-width: 450px) {
+                    width: 140px;
+                    height: 140px;
+                }
             }
         }
 
