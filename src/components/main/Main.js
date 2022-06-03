@@ -9,7 +9,7 @@ export default function Main(props) {
     const [cardData, setCardData] = useState({
         qrCode: qrPlaceholder, 
         username: "Username", 
-        url: "", 
+        url: "qode.design", 
         image: userPlaceholder,
         background: "#85f6fa"
     })

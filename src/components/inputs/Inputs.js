@@ -1,17 +1,19 @@
-import React from "react" 
-import { Button, TextField, FormControl, Input } from "@mui/material"
+import React, {useState} from "react" 
+import { Button, TextField, FormControl, Input, CircularProgress } from "@mui/material"
 import "./Inputs.scss"
 
 export default function Inputs(props) {
+    const [loading, setLoading] = useState(false)
 
     const {cardData, setCardData} = props
 
     function formSubmit(e) {
-
+        setLoading(true)
         e.preventDefault()
         fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${cardData.url}&bgcolor=${cardData.background.substring(1)}`)
             .then(response => {
                 setCardData({...cardData, qrCode: response.url})
+                setLoading(false)
             })
             .catch(console.log("Request not recieved"))
     }
@@ -38,6 +40,7 @@ export default function Inputs(props) {
                         </label>
                         <input  type="color" name="background" value={cardData.background} onChange={handleChange}></input>
                         <Button className="Button" sx={{ mt: 1}} variant="contained" type="submit" onClick={formSubmit}>Create Qr Code</Button>
+                        {loading && <CircularProgress />}
                     </div>
             </FormControl>
         </div>
