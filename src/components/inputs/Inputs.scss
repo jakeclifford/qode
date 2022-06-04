@@ -26,3 +26,31 @@
         }
     }
 }
+
+.color-pickers{
+    display: flex;
+
+    .color-picker {
+
+        p {
+            margin: 0px;
+        }
+
+        .react-colorful{
+            width: 90px;
+            height: 90px;
+            margin: 10px 40px 0px 0px;
+
+            .react-colorful__saturation-pointer {
+                width: 25px;
+                height: 25px;
+            }
+
+            .react-colorful__hue-pointer {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+    }
+}

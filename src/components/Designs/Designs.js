@@ -12,7 +12,7 @@ export default function Designs(props){
             <input id="card-design" alt="card" type="image" src={cardDesign} 
             onClick={() => setPage("card")} />
             <input id="sticker-design" alt="card" type="image" src={stickerDesign} 
-            onClick={() => setPage("card")} />
+            onClick={() => setPage("sticker")} />
         </div>
     )
 }

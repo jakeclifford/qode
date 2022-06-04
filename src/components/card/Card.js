@@ -2,7 +2,8 @@ import "./Card.scss"
 import React from "react"
 
 export default function Card(props) {
-    const {qrCode, username, image, background, qrColor} = props
+    const {cardData} = props
+    const {qrCode, username, image, background, qrColor} = cardData
 
     return (
             <div className="card" style={{background: background}}>
