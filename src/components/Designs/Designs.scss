@@ -1,0 +1,14 @@
+#designs{
+    display: flex;
+    flex-wrap: wrap;
+
+    #card-design{
+        width: 250px;
+        object-fit: contain;
+    }
+
+    #sticker-design{
+        width: 200px;
+    }
+}
+

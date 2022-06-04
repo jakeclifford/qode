@@ -49,11 +49,11 @@ export default function Inputs(props) {
                         </label>
                         <div>
                             <input  id="background" type="color" name="background" value={cardData.background} onChange={handleColorChange}></input>
-                            <label for="background">Background Color</label>
+                            <label htmlFor="background">Background Color</label>
                         </div>
                         <div>
                             <input  id="qr-color" type="color" name="qrColor" value={cardData.qrColor} onChange={handleColorChange}></input>
-                            <label for="qr-color">QR Code Color</label>
+                            <label htmlFor="qr-color">QR Code Color</label>
                         </div>
                         <Button className="Button" sx={{ mt: 1}} variant="contained" type="submit" onClick={formSubmit}>Create Qr Code</Button>
                         {loading && <CircularProgress />}
