@@ -8,7 +8,7 @@ export default function SimpleQr(props){
 
     return (
         <div id="simple-container">
-            <img src={qrCode}></img>
+            <img style={{background: cardData.background}}src={qrCode}></img>
             <div id="simple-inputs">
                 <Inputs cardData={cardData} setCardData={setCardData} page={"welcome"} />
             </div>

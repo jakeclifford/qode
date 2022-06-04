@@ -7,19 +7,21 @@ import StickerInputs from "../StickerInputs/StickerInputs"
 import { HexColorPicker } from "react-colorful";
 
 export default function Inputs(props) {
-    const [loading, setLoading] = useState(false)
-    const [qrColor, setQrColor] = useState("#aabbcc")
-    const [backgroundColor, setBackgroundColor] = useState("#aabbcc")
-
     const {cardData, setCardData, page} = props
 
+    const [loading, setLoading] = useState(false)
+    const [qrColor, setQrColor] = useState(cardData.qrColor)
+    const [backgroundColor, setBackgroundColor] = useState(cardData.background)
+
+
+
     useEffect(()=>{
-        setCardData({...cardData, qrColor: qrColor})
+        setCardData({...cardData, qrCode: qrPlaceholder, qrColor: qrColor})
     }, [qrColor]
     )
 
     useEffect(()=>{
-        setCardData({...cardData, background: backgroundColor})
+        setCardData({...cardData, qrCode: qrPlaceholder, background: backgroundColor})
     }, [backgroundColor]
     )
 
@@ -41,10 +43,6 @@ export default function Inputs(props) {
 
     function handleChange(e){
         setCardData({...cardData, [e.target.name]: e.target.value})
-    }
-
-    function handleColorChange(e){
-        setCardData({...cardData, qrCode: qrPlaceholder, [e.target.name]: e.target.value})
     }
 
     function imageUpload(e){
