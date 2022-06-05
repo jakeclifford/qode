@@ -9,11 +9,9 @@ export default function Welcome(props) {
 
     return (
         <div id="welcome-container">
-            <h1>Generate Your Qr-code</h1>
-            <div id="welcome-card">
+            <h1 style={{color: cardData.background}}>Generate Your Qr-code</h1>
+            <div id="welcome-card" style={{background: cardData.background}}>
                 <SimpleQr cardData={cardData} setCardData={setCardData}/>
-                <p>Or add more with our Design Templates Below</p>
-                <Designs setPage={setPage}/>
             </div>
         </div>
     )

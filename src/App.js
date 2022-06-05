@@ -22,11 +22,9 @@ function App() {
     })
   
   return (
-    <div id="content">
+    <div id="content" style={{background: cardData.qrColor}}>
       <Header setPage={setPage}/>
-      {page === "welcome" 
-        ? <Welcome setPage={setPage} cardData={cardData} setCardData={setCardData}/> 
-        : <Main page={page} setPage={setPage} cardData={cardData} setCardData={setCardData}/>}
+      <Welcome setPage={setPage} cardData={cardData} setCardData={setCardData}/> 
     </div>
   )
 }
