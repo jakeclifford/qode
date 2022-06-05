@@ -12,23 +12,45 @@ export default function Inputs(props) {
     const [loading, setLoading] = useState(false)
     const [qrColor, setQrColor] = useState(cardData.qrColor)
     const [backgroundColor, setBackgroundColor] = useState(cardData.background)
+    const [created, setCreated] = useState(false)
 
 
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+
+    
+    function colorChange() {
+        document.querySelector('path').style.fill = qrColor
+        document.querySelector('rect').style.fill = backgroundColor
+    }
 
     useEffect(()=>{
         setCardData({...cardData, qrCode: qrPlaceholder, qrColor: qrColor})
+        if (created) {
+            colorChange()
+        }
     }, [qrColor]
     )
 
     useEffect(()=>{
         setCardData({...cardData, qrCode: qrPlaceholder, background: backgroundColor})
+        if (created) {
+            colorChange()
+        }
     }, [backgroundColor]
     )
 
     function fetchData() {
         fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${cardData.url}&bgcolor=${cardData.background.substring(1)}&color=${cardData.qrColor.substring(1)}&format=svg`)
+            .then(res => res.text())
             .then(response => {
-                setCardData({...cardData, qrCode: response.url})
+                setCreated(true)
+                const holder = document.createElement('div')
+                holder.innerHTML = response
+                document.getElementById('qr-holder').innerHTML = ""
+                document.getElementById('qr-holder').append(holder)
                 setLoading(false)
             })
             .catch(console.log("Request not recieved"))
@@ -70,7 +92,7 @@ export default function Inputs(props) {
     }
 
     function urlInput(){
-        return <TextField autoComplete='off' sx={{ my: 1, mr: 1 }} size="small" label="Url" variant="outlined" name="url" onChange={handleChange}/>
+        return <TextField autoComplete='off' value={cardData.url} sx={{ my: 1, mr: 1 }} size="small" label="Url" variant="outlined" name="url" onChange={handleChange}/>
     }
 
     return (

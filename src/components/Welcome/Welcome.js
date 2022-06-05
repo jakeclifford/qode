@@ -10,8 +10,7 @@ export default function Welcome(props) {
     return (
         <div id="welcome-container">
             <div id="welcome-card">
-                <h1>Welcome</h1>
-                <h4>At qode you can generate custom Color QR codes </h4>
+                <h1>Generate Your Qr-code</h1>
                 <SimpleQr cardData={cardData} setCardData={setCardData}/>
                 <p>Or add more with our Design Templates Below</p>
                 <Designs setPage={setPage}/>

@@ -13,7 +13,7 @@ export default function Card(props) {
                         {image &&<img className="user-image" src={image} alt="User"></img>}
                     </div>
                     <div className="image-container">
-                        {qrCode && <img className="qr-image"src={qrCode} alt="Qr Code"></img>}
+                        <div id="qr-holder"></div>
                     </div>
                 </div>
             </div>

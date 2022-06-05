@@ -5,10 +5,11 @@ import "./SimpleQr.scss"
 export default function SimpleQr(props){
     const {cardData, setCardData} = props
     const {qrCode} = cardData
+    console.log(qrCode)
 
     return (
         <div id="simple-container">
-            <img style={{background: cardData.background}}src={qrCode}></img>
+            <div id="qr-holder"></div>
             <div id="simple-inputs">
                 <Inputs cardData={cardData} setCardData={setCardData} page={"welcome"} />
             </div>

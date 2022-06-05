@@ -23,7 +23,7 @@ function App() {
   
   return (
     <div id="content">
-      <Header />
+      <Header setPage={setPage}/>
       {page === "welcome" 
         ? <Welcome setPage={setPage} cardData={cardData} setCardData={setCardData}/> 
         : <Main page={page} setPage={setPage} cardData={cardData} setCardData={setCardData}/>}

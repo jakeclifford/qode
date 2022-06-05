@@ -8,7 +8,7 @@ export default function Sticker(props) {
     return (
             <div className="sticker" style={{background: background}}>
                     <h2 class="text">{top}</h2> 
-                    {qrCode && <img className="qr-image"src={qrCode} alt="Qr Code"></img>}
+                    <div id="qr-holder"></div>
                     <h2 class="text">{bottom}</h2>
             </div>
     )
