@@ -16,7 +16,7 @@ function App() {
       url: "qode.design", 
       image: userPlaceholder,
       background: "#85f6fa",
-      qrColor: "#000000",
+      qrColor: "#0d303e",
       top:"Scan code to donate to charity",
       bottom: "Thankyou for the donation"
     })
@@ -24,7 +24,9 @@ function App() {
   return (
     <div id="content" style={{background: cardData.qrColor}}>
       <Header setPage={setPage}/>
-      <Welcome setPage={setPage} cardData={cardData} setCardData={setCardData}/> 
+      {page === "welcome" 
+        ? <Welcome setPage={setPage} cardData={cardData} setCardData={setCardData}/> 
+        : <Main page={page} setPage={setPage} cardData={cardData} setCardData={setCardData}/>}
     </div>
   )
 }
