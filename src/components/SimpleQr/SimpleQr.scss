@@ -5,7 +5,23 @@
     align-items: center;
     margin: 40px 0px;
 
-    svg {
+    @media screen and (max-width: 650px) {
+        flex-direction: column; 
+    }
+
+    #simple-inputs{
+
+        @media screen and (max-width: 650px) {
+            margin-top: 40px;
+        }
+        
+    }
+
+    svg #qr-holder {
+        transform: scale(1.5)
+    }
+
+    #qr-holder {
         transform: scale(1.5)
     }
 }

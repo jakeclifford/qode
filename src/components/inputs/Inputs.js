@@ -85,14 +85,14 @@ export default function Inputs(props) {
                         <p>Qr Code</p>
                     </div>
                 </div>
-                <Button className="Button" sx={{ mt: 1}} variant="contained" type="submit" onClick={formSubmit}>Create Qr Code</Button>
+                <Button className="Button" sx={{ mt: 1, width: "100%"}} variant="contained" type="submit" onClick={formSubmit}>Create Qr Code</Button>
                 {loading && <CircularProgress />}
             </>
         )
     }
 
     function urlInput(){
-        return <TextField autoComplete='off' value={cardData.url} sx={{ my: 1, mr: 1 }} size="small" label="Url" variant="outlined" name="url" onChange={handleChange}/>
+        return <TextField autoComplete='off' value={cardData.url} sx={{ my: 1, mr: 1, width: "100%" }} size="small" label="Url" variant="outlined" name="url" onChange={handleChange}/>
     }
 
     return (

@@ -33,13 +33,13 @@
     .color-picker {
 
         p {
-            margin: 0px;
+            margin: 0px 0px 0px 30px;
         }
 
         .react-colorful{
             width: 90px;
             height: 90px;
-            margin: 10px 40px 0px 0px;
+            margin: 10px 30px 0px 30px;
 
             .react-colorful__saturation-pointer {
                 width: 25px;
@@ -54,3 +54,4 @@
 
     }
 }
+
