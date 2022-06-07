@@ -1,5 +1,6 @@
 import "./Card.scss"
 import React from "react"
+import { CircularProgress } from "@mui/material"
 
 export default function Card(props) {
     const {cardData, page} = props
@@ -14,7 +15,7 @@ export default function Card(props) {
                     </div>
                     <div className="image-container">
                         {page === "welcome" && <div id="qr-holder"></div>}
-                        <div id="qr-card"></div> 
+                        <div id="qr-card"><CircularProgress /></div> 
                     </div>
                 </div>
             </div>

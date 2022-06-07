@@ -24,7 +24,6 @@ function App() {
   return (
     <div id="content" style={{background: cardData.qrColor}}>
       <Header setPage={setPage}/>
-      <button onClick={() => setPage("card")}>Card Design</button>
       {page === "welcome" 
         ? <Welcome page={page} setPage={setPage} cardData={cardData} setCardData={setCardData}/> 
         : <Main page={page} setPage={setPage} cardData={cardData} setCardData={setCardData}/>}

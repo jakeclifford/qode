@@ -94,7 +94,6 @@ export default function Inputs(props) {
                     </div>
                 </div>
                 <Button className="Button" sx={{ mt: 1, width: "100%", background: cardData.qrColor}} variant="contained" type="submit" onClick={formSubmit}>Generate Qr Code</Button>
-                {loading && <CircularProgress />}
             </>
         )
     }

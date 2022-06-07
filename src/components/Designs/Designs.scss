@@ -2,10 +2,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border: 1px solid rgb(232, 232, 232);
+    margin-top: 5px;
+    border-radius: 10px;
 
-    #card-design{
-        width: 250px;
-        object-fit: contain;
+    .card &:hover {
+        transform: scale(1.1);
     }
 
     #sticker-design{
