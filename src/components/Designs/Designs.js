@@ -1,18 +1,17 @@
 import React from "react";
-import cardDesign from "./card-design.png"
-import stickerDesign from "./sticker-design.svg"
+import Card from "../card/Card";
 import "./Designs.scss"
 
 export default function Designs(props){
 
-    const {setPage} = props
+    const {setPage, page, cardData} = props
 
     return (
-        <div id="designs">
-            <input id="card-design" alt="card" type="image" src={cardDesign} 
-            onClick={() => setPage("card")} />
-            <input id="sticker-design" alt="card" type="image" src={stickerDesign} 
-            onClick={() => setPage("sticker")} />
+        <div id="designs" style={{background: cardData.qrColor}} >
+            <h3 style={{color: cardData.background}}>Edit Designs</h3>
+            <a onClick={() => setPage("card")}>
+                <Card cardData={cardData} page={page}/>
+            </a>
         </div>
     )
 }

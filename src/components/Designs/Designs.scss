@@ -1,11 +1,16 @@
 #designs{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    align-content: center;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    margin-top: 20px;
+    border-radius: 10px;
 
-    #card-design{
-        width: 250px;
-        object-fit: contain;
+    h3 {
+        text-align: center;
+        margin: 0px 0px -10px 0px;
     }
 
     #sticker-design{
