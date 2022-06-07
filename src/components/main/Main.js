@@ -12,7 +12,7 @@ export default function Main(props) {
     return (
         <div id="main">
             <div id="cards">
-                {page === "card" && <Card cardData={cardData} />}
+                {page === "card" && <Card cardData={cardData} page={page} />}
                 {page === "sticker" && <Sticker cardData={cardData} />}
             </div>
             <Inputs 

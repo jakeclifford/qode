@@ -14,22 +14,17 @@ export default function Inputs(props) {
     const [backgroundColor, setBackgroundColor] = useState(cardData.background)
     const [created, setCreated] = useState(false)
 
-
     useEffect(() => {
         fetchData()
     }, [])
-
-
     
-    function colorChange() {
-        document.querySelector('path').style.fill = qrColor
-        document.querySelector('rect').style.fill = backgroundColor
-    }
-
     useEffect(()=>{
         setCardData({...cardData, qrCode: qrPlaceholder, qrColor: qrColor})
         if (created) {
-            colorChange()
+            const elements = document.querySelectorAll('path')
+            elements.forEach((userItem) => {
+                userItem.style.fill = qrColor
+            });
         }
     }, [qrColor]
     )
@@ -37,7 +32,10 @@ export default function Inputs(props) {
     useEffect(()=>{
         setCardData({...cardData, qrCode: qrPlaceholder, background: backgroundColor})
         if (created) {
-            colorChange()
+            const elements = document.querySelectorAll('rect')
+            elements.forEach((userItem) => {
+                userItem.style.fill = backgroundColor
+            });
         }
     }, [backgroundColor]
     )
@@ -48,9 +46,19 @@ export default function Inputs(props) {
             .then(response => {
                 setCreated(true)
                 const holder = document.createElement('div')
+                const holder2 = document.createElement('div')
+
                 holder.innerHTML = response
-                document.getElementById('qr-holder').innerHTML = ""
-                document.getElementById('qr-holder').append(holder)
+                holder2.innerHTML = response
+
+                if (page === "welcome") {
+                    document.getElementById('qr-holder').innerHTML = ""
+                    document.getElementById('qr-holder').append(holder)
+                }
+                
+                document.getElementById('qr-card').innerHTML = ""
+                document.getElementById('qr-card').append(holder2)
+
                 setLoading(false)
             })
             .catch(console.log("Request not recieved"))
