@@ -6,19 +6,20 @@ import "./Main.scss"
 
 export default function Main(props) {
 
-    const {page, cardData, setCardData} = props
+    const {page, cardData, setCardData, created, fetchData} = props
 
-    
     return (
         <div id="main">
             <div id="cards">
-                {page === "card" && <Card cardData={cardData} />}
-                {page === "sticker" && <Sticker cardData={cardData} />}
+                {page === "card" && <Card cardData={cardData} singleQr={true} fetchData={fetchData}/>}
+                {page === "sticker" && <Sticker cardData={cardData} singleQr={true}/>}
             </div>
             <Inputs 
                 cardData={cardData} 
                 setCardData={setCardData}
                 page={page}
+                fetchData={fetchData}
+                created={created}
             />
         </div>
     )

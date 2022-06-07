@@ -1,18 +1,22 @@
 import React from "react";
-import cardDesign from "./card-design.png"
-import stickerDesign from "./sticker-design.svg"
 import "./Designs.scss"
+import Card from "../card/Card"
+import Sticker from "../Sticker/Sticker"
 
 export default function Designs(props){
 
-    const {setPage} = props
+    const {setPage, cardData, fetchData} = props
 
     return (
         <div id="designs">
-            <input id="card-design" alt="card" type="image" src={cardDesign} 
-            onClick={() => setPage("card")} />
-            <input id="sticker-design" alt="card" type="image" src={stickerDesign} 
-            onClick={() => setPage("sticker")} />
+            < div id="scaled">
+                <a onClick={() => setPage("card")}>
+                    <Card cardData={cardData} singleQr={false} fetchData={fetchData}/>
+                </a>
+                <a onClick={() => setPage("sticker")}>
+                    <Sticker cardData={cardData} singleQr={false}/>
+                </a>
+            </div>
         </div>
     )
 }

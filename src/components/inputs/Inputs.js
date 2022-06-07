@@ -7,29 +7,24 @@ import StickerInputs from "../StickerInputs/StickerInputs"
 import { HexColorPicker } from "react-colorful";
 
 export default function Inputs(props) {
-    const {cardData, setCardData, page} = props
+    const {cardData, setCardData, page, fetchData, created} = props
 
     const [loading, setLoading] = useState(false)
     const [qrColor, setQrColor] = useState(cardData.qrColor)
     const [backgroundColor, setBackgroundColor] = useState(cardData.background)
-    const [created, setCreated] = useState(false)
 
 
     useEffect(() => {
         fetchData()
     }, [])
 
-
-    
-    function colorChange() {
-        document.querySelector('path').style.fill = qrColor
-        document.querySelector('rect').style.fill = backgroundColor
-    }
-
     useEffect(()=>{
         setCardData({...cardData, qrCode: qrPlaceholder, qrColor: qrColor})
         if (created) {
-            colorChange()
+            const elements = document.querySelectorAll('path')
+            elements.forEach((userItem) => {
+                userItem.style.fill = qrColor
+            });
         }
     }, [qrColor]
     )
@@ -37,24 +32,13 @@ export default function Inputs(props) {
     useEffect(()=>{
         setCardData({...cardData, qrCode: qrPlaceholder, background: backgroundColor})
         if (created) {
-            colorChange()
+            const elements = document.querySelectorAll('rect')
+            elements.forEach((userItem) => {
+                userItem.style.fill = backgroundColor
+            });
         }
     }, [backgroundColor]
     )
-
-    function fetchData() {
-        fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${cardData.url}&bgcolor=${cardData.background.substring(1)}&color=${cardData.qrColor.substring(1)}&format=svg`)
-            .then(res => res.text())
-            .then(response => {
-                setCreated(true)
-                const holder = document.createElement('div')
-                holder.innerHTML = response
-                document.getElementById('qr-holder').innerHTML = ""
-                document.getElementById('qr-holder').append(holder)
-                setLoading(false)
-            })
-            .catch(console.log("Request not recieved"))
-    }
     
 
     function formSubmit(e) {

@@ -5,13 +5,14 @@ import SimpleQr from "../SimpleQr/SimpleQr"
 
 export default function Welcome(props) {
 
-    const {setPage, cardData, setCardData} = props
+    const {setPage, cardData, setCardData, fetchData} = props
 
     return (
         <div id="welcome-container">
             <h1 style={{color: cardData.background}}>Generate Your Qr-code</h1>
             <div id="welcome-card" style={{background: cardData.background}}>
-                <SimpleQr cardData={cardData} setCardData={setCardData}/>
+                <SimpleQr cardData={cardData} setCardData={setCardData} fetchData={fetchData}/>
+                <Designs cardData={cardData} setPage={setPage} fetchData={fetchData}/>
             </div>
         </div>
     )
