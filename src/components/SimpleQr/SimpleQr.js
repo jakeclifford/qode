@@ -5,11 +5,11 @@ import "./SimpleQr.scss"
 
 export default function SimpleQr(props){
     const {cardData, setCardData, page} = props
-    const {qrCode} = cardData
+    const {qrCode, background} = cardData
 
     return (
-        <div id="simple-container">
-            <div id="qr-holder"><h3><CircularProgress /></h3></div>
+        <div id="simple-container" style={{background: background}}>
+            <div id="qr-holder" className="simple-qr-holder"><h3><CircularProgress /></h3></div>
             <div id="simple-inputs">
                 <Inputs cardData={cardData} setCardData={setCardData} page={page} />
             </div>

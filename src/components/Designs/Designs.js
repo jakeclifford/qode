@@ -7,7 +7,8 @@ export default function Designs(props){
     const {setPage, page, cardData} = props
 
     return (
-        <div id="designs" >
+        <div id="designs" style={{background: cardData.qrColor}} >
+            <h3 style={{color: cardData.background}}>Edit Designs</h3>
             <a onClick={() => setPage("card")}>
                 <Card cardData={cardData} page={page}/>
             </a>
