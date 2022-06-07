@@ -8,7 +8,7 @@ export default function SimpleQr(props){
     const {qrCode, background} = cardData
 
     return (
-        <div id="simple-container" style={{background: background}}>
+        <div id="simple-container" style={{background: "white"}}>
             <div id="qr-holder" className="simple-qr-holder"><h3><CircularProgress /></h3></div>
             <div id="simple-inputs">
                 <Inputs cardData={cardData} setCardData={setCardData} page={page} />
