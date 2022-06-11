@@ -47,17 +47,26 @@ export default function Inputs(props) {
                 setCreated(true)
                 const holder = document.createElement('div')
                 const holder2 = document.createElement('div')
+                const holder3 = document.createElement('div')
 
                 holder.innerHTML = response
                 holder2.innerHTML = response
+                holder3.innerHTML = response
 
                 if (page === "welcome") {
                     document.getElementById('qr-holder').innerHTML = ""
                     document.getElementById('qr-holder').append(holder)
                 }
                 
-                document.getElementById('qr-card').innerHTML = ""
-                document.getElementById('qr-card').append(holder2)
+                if (page === "welcome" || page === "card") {
+                    document.getElementById('qr-card').innerHTML = ""
+                    document.getElementById('qr-card').append(holder2)
+                }
+
+                if (page === "welcome" || page === "sticker") {
+                    document.getElementById('qr-sticker').innerHTML = ""
+                    document.getElementById('qr-sticker').append(holder3)
+                }
 
                 setLoading(false)
             })
