@@ -1,12 +1,13 @@
 #designs{
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
-    background: white;
+    justify-content: center;
+    align-items: center;
+    background: rgb(247, 247, 247);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     margin-top: 20px;
     border-radius: 10px;
+
 
     h3 {
         text-align: center;
@@ -16,5 +17,35 @@
     #sticker-design{
         width: 200px;
     }
+
+    .sticker, .card{
+        transform: scale(0.7);
+
+        @media screen and (max-width: 450px){
+            margin-left: 20px;
+        }
+    }
+
+    .card {
+        @media screen and (max-width: 450px){
+            margin-left: 40px;
+            margin-top: 30px
+        }
+    }
+
+
+
+    .design {
+        display: flex;
+        width: 400px;
+        align-items: center;
+        margin: -40px 0px -40px -40px;
+    }
+
+    @media screen and (max-width: 450px){
+        width: 100%;
+        margin: 10px 0px 0px 0px;
+    }
+
 }
 
