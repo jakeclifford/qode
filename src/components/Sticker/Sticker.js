@@ -8,7 +8,7 @@ export default function Sticker(props) {
 
     return (
             <div className="sticker" style={{background: background}}>
-                    <h2 class="text">{top}</h2> 
+                    <h2 className="text">{top}</h2> 
                     {page === "welcome" && <div id="qr-holder"></div>}
                     <div id="qr-sticker"><CircularProgress /></div> 
                     <h2 className="text">{bottom}</h2>
