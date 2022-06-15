@@ -9,7 +9,7 @@ export default function Designs(props){
 
     return (
         <>
-        <h3 style={{color: cardData.background}}>Edit Designs</h3>
+        <h3 style={{color: "black"}}>Edit Designs</h3>
         <div id="designs" >
             <div className="design">
                 <a onClick={() => setPage("card")}>
